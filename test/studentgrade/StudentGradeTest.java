@@ -2,34 +2,37 @@ package studentgrade;
 
 import junit.framework.TestCase;
 
-/* JUnit 3.8.1 */
+
+/* JUnit 5.6.0 */
+
 public class StudentGradeTest extends TestCase {
     
-    public StudentGradeTest(String testName) {
+       public StudentGradeTest(String testName) {
         super(testName);
     }
-
-    public void testGetGrade95() {
-        System.out.println("getGrade 95");
-        int mark = 95;
+       
+    public void test_behaviour_A() {
+        System.out.println("getGrade A");
         String expResult = "A";
-        String result = StudentGrade.getGrade(mark);
-        assertEquals(expResult, result);
+        assertEquals(expResult, StudentGrade.getGrade(90));
+        assertEquals(expResult, StudentGrade.getGrade(95));
+        assertEquals(expResult, StudentGrade.getGrade(100));
     }
 
-    public void testGetGrade85() {
-        System.out.println("getGrade 85");
-        int mark = 85;
+   public void test_behaviour_B() {
+         System.out.println("getGrade B");
         String expResult = "B";
-        String result = StudentGrade.getGrade(mark);
-        assertEquals(expResult, result);
+        assertEquals("B", StudentGrade.getGrade(89));
+        assertEquals("B", StudentGrade.getGrade(85));
+        assertEquals("B", StudentGrade.getGrade(80));
     }
     
-    public void testGetGrade75() {
-        System.out.println("getGrade 85");
-        int mark = 75;
+
+    public void test_behaviour_F() {
+         System.out.println("getGrade F");
         String expResult = "F";
-        String result = StudentGrade.getGrade(mark);
-        assertEquals(expResult, result);
+        assertEquals("F", StudentGrade.getGrade(79));
+        assertEquals("F", StudentGrade.getGrade(50));
+        assertEquals("F", StudentGrade.getGrade(0));
     }
 }
